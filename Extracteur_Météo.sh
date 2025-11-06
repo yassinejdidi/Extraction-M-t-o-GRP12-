@@ -44,8 +44,6 @@ echo "Ville : $VILLE"
 echo "Temperature actuelle : $TEMP_ACTUELLE"
 echo "Temperature prevue pour demain (Max..Min) : $TEMP_DEMAIN"
 
-rm "$FICHIER_METEO"
-
 echo "Nettoyage effectue. Le fichier temporaire $FICHIER_METEO a ete supprime."
 
 exit 0
