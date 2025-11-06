@@ -22,7 +22,7 @@ if [ $? -ne 0 ] || [ ! -s "$FICHIER_METEO" ]; then
     exit 1
 fi
 
-echo "Donnees brutes sauvegardees dans $FICHIER_METEO."
+echo "Donnees sauvegardees dans $FICHIER_METEO."
 
 
 TEMP_ACTUELLE_LIGNE=$(grep -E '([+-][0-9]+)' "$FICHIER_METEO" | head -n 1)
@@ -43,7 +43,5 @@ fi
 echo "Ville : $VILLE"
 echo "Temperature actuelle : $TEMP_ACTUELLE"
 echo "Temperature prevue pour demain (Max..Min) : $TEMP_DEMAIN"
-
-echo "Nettoyage effectue. Le fichier temporaire $FICHIER_METEO a ete supprime."
 
 exit 0
