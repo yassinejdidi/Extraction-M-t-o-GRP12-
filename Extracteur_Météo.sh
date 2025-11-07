@@ -1,45 +1,38 @@
 #!/bin/bash
 
-FICHIER_METEO="filemeteo.txt"
+FICHIER_SORTIE="meteo.txt"
 WTTR_URL="wttr.in"
-LANGUE="fr"
 
 if [ -z "$1" ]; then
     echo "Usage: $0 <Ville>"
-    echo "Exemple: ./Extracteur_Météo.sh Toulouse"
     exit 1
 fi
 
 VILLE="$1"
+DATE=$(date +"%d/%m/%Y")
+HEURE=$(date +"%H:%M:%S")
 
-echo "Recuperation des donnees meteorologiques pour $VILLE..."
-
-curl -s "$LANGUE.$WTTR_URL/$VILLE?format=3" > "$FICHIER_METEO"
-
-if [ $? -ne 0 ] || [ ! -s "$FICHIER_METEO" ]; then
-    echo "Erreur: Impossible de recuperer les donnees ou fichier vide."
-    rm -f "$FICHIER_METEO"
+if ! command -v jq &> /dev/null; then
+    echo "Erreur : jq n'est pas installé."
     exit 1
 fi
 
-echo "Donnees sauvegardees dans $FICHIER_METEO."
+METEO_JSON=$(curl -s "$WTTR_URL/$VILLE?format=j1")
 
-TEMP_ACTUELLE_LIGNE=$(head -n 3 "$FICHIER_METEO" | tail -n 1)
-TEMP_ACTUELLE=$(echo "$TEMP_ACTUELLE_LIGNE" | grep -oE '[+-]?[0-9]+' | head -n 1)
+TEMP_ACTUELLE=$(echo "$METEO_JSON" | jq -r '.current_condition[0].temp_C')
+[ -z "$TEMP_ACTUELLE" ] && TEMP_ACTUELLE="Non disponible"
+TEMP_ACTUELLE="${TEMP_ACTUELLE}°C"
 
-if [ -z "$TEMP_ACTUELLE" ]; then
-    TEMP_ACTUELLE="Non disponible"
-fi
-
-TEMP_DEMAIN_LIGNE=$(head -n 5 "$FICHIER_METEO" | tail -n 1)
-TEMP_DEMAIN=$(echo "$TEMP_DEMAIN_LIGNE" | awk '{print $NF}' | sed 's/+//; s/±//')
-
-if [ -z "$TEMP_DEMAIN" ]; then
-    TEMP_DEMAIN="Non disponible"
-fi
+TEMP_DEMAIN=$(echo "$METEO_JSON" | jq -r '.weather[1].avgtempC')
+[ -z "$TEMP_DEMAIN" ] && TEMP_DEMAIN="Non disponible"
+TEMP_DEMAIN="${TEMP_DEMAIN}°C"
 
 echo "Ville : $VILLE"
-echo "Temperature actuelle : $TEMP_ACTUELLE°C"
-echo "Temperature prevue pour demain : $TEMP_DEMAIN"
+echo "Température actuelle : $TEMP_ACTUELLE"
+echo "Température prévue pour demain : $TEMP_DEMAIN"
 
+echo "$DATE - $HEURE - Ville : $VILLE - $TEMP_ACTUELLE - $TEMP_DEMAIN" >> "$FICHIER_SORTIE"
+
+echo "Données enregistrées dans $FICHIER_SORTIE"
 exit 0
+

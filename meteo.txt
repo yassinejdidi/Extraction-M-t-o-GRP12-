@@ -1,0 +1,46 @@
+Ville : Nice
+Temperature actuelle : +14°C
+Temperature prevue pour demain : 16°C
+07/11/2025 - 12:32:22 - Ville : Nice - +14°C - 16°C
+07/11/2025 - 12:37:27 - Ville : Nice - +14°C - 14°C
+07/11/2025 - 12:37:35 - Ville : Toulouse - +16°C - 16°C
+07/11/2025 - 12:38:04 - Ville : Nice - +14°C - 14°C
+07/11/2025 - 12:38:09 - Ville : Paris - +12°C - 12°C
+07/11/2025 - 12:38:44 - Ville : Toulouse - +16°C - 16°C
+07/11/2025 - 12:42:30 - Ville : Toulouse - +16°C - 16°C
+07/11/2025 - 12:42:39 - Ville : Paris - +12°C - 12°C
+07/11/2025 - 12:47:15 - Ville : Toulouse - +16°C - +16°C°C
+07/11/2025 - 12:47:21 - Ville : Paris - +12°C - +12°C°C
+07/11/2025 - 12:49:05 - Ville : Paris - +12°C - +12°C
+07/11/2025 - 12:52:05 - Ville : Paris - +12°C - +12°C
+07/11/2025 - 12:52:14 - Ville : Toulouse - +12°C - +16°C
+07/11/2025 - 12:52:24 - Ville : Nice - +12°C - +15°C
+07/11/2025 - 12:53:04 - Ville : Nice - +12°C - +15°C
+07/11/2025 - 12:53:10 - Ville : Paris - +12°C - +12°C
+07/11/2025 - 12:53:16 - Ville : Toulouse - +12°C - +16°C
+07/11/2025 - 12:54:01 - Ville : Strasbourg - +12°C - +5°C
+07/11/2025 - 12:56:47 - Ville : Strasbourg - +5°C - Non disponible
+07/11/2025 - 12:56:56 - Ville : Toulouse - +16°C - Non disponible
+07/11/2025 - 12:57:03 - Ville : Nice - +15°C - Non disponible
+07/11/2025 - 12:59:28 - Ville : Nice - +15°C - Non disponible
+07/11/2025 - 12:59:33 - Ville : Toulouse - +16°C - Non disponible
+07/11/2025 - 13:00:51 - Ville : Toulouse - +16°C - Non disponible
+07/11/2025 - 13:00:59 - Ville : Nice - +15°C - Non disponible
+07/11/2025 - 13:02:11 - Ville : Nice - +15°C - Non disponible
+07/11/2025 - 13:02:55 - Ville : Toulouse - +16°C - Non disponible
+07/11/2025 - 13:05:42 - Ville : Toulouse - +16°C - Non disponible
+07/11/2025 - 13:09:16 - Ville : Toulouse - +16°C - 11°C
+07/11/2025 - 13:09:30 - Ville : Nice - +15°C - 13°C
+07/11/2025 - 13:12:54 - Ville : Nice - +15°C - 13°C
+07/11/2025 - 13:12:59 - Ville : Toulouse - +15°C - 11°C
+07/11/2025 - 13:13:57 - Ville : Toulouse - +15°C - 
+07/11/2025 - 13:16:53 - Ville : Toulouse - +15°C - Non disponible
+07/11/2025 - 13:17:03 - Ville : Nice - +15°C - Non disponible
+07/11/2025 - 13:18:46 - Ville : Nice - +15°C - Non disponible
+07/11/2025 - 13:20:32 - Ville : Nice - +15°C - Non disponible
+07/11/2025 - 13:21:58 - Ville : Nice - +15°C - Non disponible
+07/11/2025 - 13:26:13 - Ville : Toulouse - Non disponible - Non disponible
+07/11/2025 - 13:30:44 - Ville : Toulouse - +15°C - Non disponible
+07/11/2025 - 13:34:50 - Ville : Toulouse - 16°C - 11°C
+07/11/2025 - 13:36:38 - Ville : Toulouse - Non disponible - 11°C
+07/11/2025 - 13:39:39 - Ville : Toulouse - 16°C - 11°C
