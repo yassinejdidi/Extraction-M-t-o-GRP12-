@@ -3,8 +3,8 @@
 read -p "Entrez le nom de la ville : " ville
 
 fichier=filemeteo.txt
-curl -s "wttr.in/${ville}?3" > temp1
-sed -r 's/\x1B\[[0-9;]*[mK]//g' temp1 > "$fichier"
+curl -s "wttr.in/${ville}?3" > temp1.txt
+sed -r 's/\x1B\[[0-9;]*[mK]//g' temp1.txt > "$fichier"
 
 if [ ! -s "$fichier" ]; then
   echo "Erreur : impossible de récupérer les données pour $ville."
@@ -23,7 +23,6 @@ if [ -z "$temp_demain" ]; then
   temp_demain="Non disponible"
 fi
 
-# 5. Afficher les résultats formatés
 echo "      MÉTÉO POUR LA VILLE : $ville"
 echo " Tmpérature actuelle : $temp_actuelle"
 echo " Tmpérature prévue pour demain : $temp_demain"
