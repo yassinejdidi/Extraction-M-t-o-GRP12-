@@ -1,27 +1,28 @@
 name: Scheduled Task
+
 on:
-  workflow_dispatch: 
+  workflow_dispatch:  
   schedule:
-    - cron: '*/5 * * * *'
-    
+    - cron: '*/5 * * * *'  # Exécution automatique toutes les 5 minutes
+
 jobs:
   your-job:
     name: Exécution de l'extracteur météo
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-    
+        os: [ubuntu-latest, windows-latest]  
+    runs-on: ${{ matrix.os }}
+
     steps:
-    - name: Checkout du code
-      uses: actions/checkout@v4
-    
-    - name: Exécuter l'extracteur météo
-      run: |
-        if [ "$RUNNER_OS" == "Windows" ]; then
-          bash Extracteur_Météo.sh
-        else
-          chmod +x Extracteur_Météo.sh
-          ./Extracteur_Météo.sh
-        fi
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Exécuter l'extracteur météo
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            bash Extracteur_Météo.sh
+          else
+            chmod +x Extracteur_Météo.sh
+            ./Extracteur_Météo.sh
+          fi
               
