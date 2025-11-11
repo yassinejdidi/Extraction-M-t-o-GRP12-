@@ -23,9 +23,9 @@ if [ -z "$temp_demain" ]; then
   temp_demain="Non disponible"
 fi
 
-echo "      MÉTÉO POUR LA VILLE : $ville"
-echo " Tmpérature actuelle : $temp_actuelle"
-echo " Tmpérature prévue pour demain : $temp_demain"
+echo "MÉTÉO POUR LA VILLE : $ville"
+echo "Tmpérature actuelle : $temp_actuelle"
+echo "Tmpérature prévue pour demain : $temp_demain"
 echo "Les Données sont sauvegardées dans : $fichier"
 
 
