@@ -24,3 +24,4 @@ jobs:
           chmod +x Extracteur_Météo.sh
           ./Extracteur_Météo.sh
         fi
+              
