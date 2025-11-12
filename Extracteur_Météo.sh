@@ -58,7 +58,7 @@ echo "$DATE -$HEURE -$VILLE : $temp_actuelle - $moyenne " >> "$FICHIER_SORTIE"
 echo "MÉTÉO POUR LA VILLE : $VILLE"
 echo "température actuelle : $temp_actuelle"
 echo "température prévue pour demain: $moyenne"
-echo "historique sauvegardée dans le fichier : fichier_sortie"
+echo "historique sauvegardé dans le fichier : fichier_sortie"
 echo "Les Données sont sauvegardées dans : $FICHIER_SORTIE"
 
 #variante json
@@ -80,11 +80,13 @@ vent=$(curl -s wttr.in/$ville?format="%w")
 
 humidite=$(curl -s wttr.in/$ville?format="%h")
 
+date_meteo=$(jq -r '.weather[0].date' "$FICHIER_LOCAL")
+
 visibilite=$(head -n 17 local.txt | tail -n 1 | grep -oE "[0-9]*")
 echo "Saisie JSON"
 echo "Ville : $VILLE"
+echo "Date: $date_meteo "
 echo "Temperature actuelle : $TEMP_ACTUELLE"
-echo "Temperature prevue pour demain : $TEMP_DEMAIN"
 echo "Vent : $vent "
 echo "Humidité : $humidite"
 echo "Visibilité : $visibilite Km "
