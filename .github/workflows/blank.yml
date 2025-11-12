@@ -25,10 +25,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Exécuter l'extracteur météo
+      - name: Exécuter l'extracteur météo et enregistrer
         run: |
             chmod +x Extracteur_Météo.sh
             ./Extracteur_Météo.sh
+            git add .
+            git commit -m "mise à jour"
+            git push
 
           
               
