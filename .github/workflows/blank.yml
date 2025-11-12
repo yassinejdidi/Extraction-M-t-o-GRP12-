@@ -4,6 +4,8 @@ on:
   workflow_dispatch:  
   schedule:
     - cron: '*/5 * * * *'  # Exécution automatique toutes les 5 minutes
+permissions:
+  contents: write
 
 jobs:
   your-job:
@@ -27,10 +29,6 @@ jobs:
         run: |
             chmod +x Extracteur_Météo.sh
             ./Extracteur_Météo.sh
-      - name: Commit et push des modifications
-        run: |
-          git add .
-          git commit -m "Mise à jour automatique météo "
-          git push
+
           
               
