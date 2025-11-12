@@ -30,10 +30,18 @@ TEMP_DEMAIN=$(jq -r '.weather[1].avgtempC' "$FICHIER_LOCAL")
 [ -z "$TEMP_DEMAIN" ] && TEMP_DEMAIN="Non disponible"
 TEMP_DEMAIN="${TEMP_DEMAIN}°C"
 
+vent=$(curl -s wttr.in/$ville?format="%w")
+	
+humidite=$(curl -s wttr.in/$ville?format="%h")
+
+visibilite=$(head -n 17 local.txt | tail -n 1 | grep -oE "[0-9]*")
+
 echo "Ville : $VILLE"
 echo "Temperature actuelle : $TEMP_ACTUELLE"
 echo "Temperature prevue pour demain : $TEMP_DEMAIN"
-
+echo "Vent : $vent "
+echo "Humidité : $humidite"
+echo "Visibilité : $visibilite Km "
 echo "$DATE -$HEURE -$VILLE : $TEMP_ACTUELLE - $TEMP_DEMAIN" >> "$FICHIER_SORTIE"
 
 echo "Données enregistrées dans $FICHIER_SORTIE"
