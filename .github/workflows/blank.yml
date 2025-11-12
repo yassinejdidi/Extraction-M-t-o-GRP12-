@@ -10,7 +10,7 @@ jobs:
     name: Exécution de l'extracteur météo
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]  
+        os: [ubuntu-latest]  
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -28,7 +28,7 @@ jobs:
       - name: Commit et push des modifications
         run: |
           git add .
-          git commit -m 
+          git commit -m "Mise à jour automatique météo "
           git push
           
               
