@@ -1,10 +1,32 @@
-[{
-  "date": "2025-11-13",
-  "heure": "19:34",
-  "ville": "Pau",
-  "temperature": "Non disponible°C",
-  "prevision": "Non disponible",
-  "vent": "Non disponible km/h",
-  "humidite": "Non disponible%",
-  "visibilite": "Non disponible km"
-}]
+[
+  {
+    "date": "2025-11-13",
+    "heure": "19:34",
+    "ville": "Pau",
+    "temperature": "Non disponible°C",
+    "prevision": "Non disponible",
+    "vent": "Non disponible km/h",
+    "humidite": "Non disponible%",
+    "visibilite": "Non disponible km"
+  },
+  {
+    "date": "2025-11-13",
+    "heure": "19:37",
+    "ville": "Paris",
+    "temperature": "16°C",
+    "prevision": "Partly cloudy",
+    "vent": "9 km/h",
+    "humidite": "77%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-13",
+    "heure": "19:38",
+    "ville": "Strasbourg",
+    "temperature": "10°C",
+    "prevision": "Clear",
+    "vent": "7 km/h",
+    "humidite": "87%",
+    "visibilite": "10 km"
+  }
+]
