@@ -1,1 +1,10 @@
-
+{
+  "date": "2025-11-13",
+  "heure": "13:40",
+  "ville": "Toulouse",
+  "temperature": "Non disponible°C",
+  "prevision": "Partly cloudy",
+  "vent": "↖40km/h",
+  "humidite": "94%",
+  "visibilite": "10"
+}
