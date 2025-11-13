@@ -53,10 +53,9 @@ fi
 #l'historique
 fichier_sortie="meteo_$(date +"%Y%m%d").txt"
 echo "$DATE $HEURE - $VILLE : $TEMP_ACTUELLE / $TEMP_DEMAIN" >> "$fichier_sortie"
+echo "historique sauvegardé dans le fichier : fichier_sortie"
 
 echo "$DATE -$HEURE -$VILLE : $temp_actuelle - $moyenne " >> "$FICHIER_SORTIE"
-echo "MÉTÉO POUR LA VILLE : $VILLE"
-echo "historique sauvegardé dans le fichier : fichier_sortie"
 echo "Les Données sont sauvegardées dans : $FICHIER_SORTIE"
 
 #variante json
@@ -68,12 +67,12 @@ fi
 
 TEMP_ACTUELLE=$(jq -r '.current_condition[0].temp_C' "$FICHIER_LOCAL")
 [ -z "$TEMP_ACTUELLE" ] && TEMP_ACTUELLE="Non disponible"
-TEMP_ACTUELLE="${TEMP_ACTUELLE}°C
+TEMP_ACTUELLE="${TEMP_ACTUELLE}°C"
 
-vent=$(curl -s wttr.in/$ville?format="%w")
-humidite=$(curl -s wttr.in/$ville?format="%h")
+vent=$(curl -s "wttr.in/$VILLE?format=%w")
+humidite=$(curl -s "wttr.in/$ville?format=%h")
 prevision=$(jq -r '.current_condition[0].weatherDesc[0].value' temp.json)
-visibilite=$(head -n 17 local.txt | tail -n 1 | grep -oE "[0-9]*")
+visibilite=$(jq -r '.current_condition[0].visibility' temp.json)
 
 jq -n \
   --arg date "$DATE" \
@@ -81,7 +80,7 @@ jq -n \
   --arg ville "$VILLE" \
   --arg temperature "$TEMP_ACTUELLE" \
   --arg prevision "$prevision" \
-  --arg vent "$VENT" \
+  --arg vent "$vent" \
   --arg humidite "$humidite" \
   --arg visibilite "$visibilite" \
   '{
@@ -93,7 +92,15 @@ jq -n \
     vent: $vent,
     humidite: $humidite,
     visibilite: $visibilite
-  }' >> "$FICHIER_LOCAL"
+  }' > "$FICHIER_LOCAL"
+
+# Nettoyage du fichier temporaire
+rm temp.json
+
+echo "Fichier JSON enregistré : $FICHIER_LOCAL"
+echo "$DATE -$HEURE -$VILLE : $TEMP_ACTUELLE - $TEMP_DEMAIN" >> "$FICHIER_SORTIE"
+echo "Données enregistrées dans $FICHIER_SORTIE"
+exit 0
 
 # Nettoyage du fichier temporaire
 rm temp.json
