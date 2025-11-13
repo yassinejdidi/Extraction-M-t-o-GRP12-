@@ -56,8 +56,6 @@ echo "$DATE $HEURE - $VILLE : $TEMP_ACTUELLE / $TEMP_DEMAIN" >> "$fichier_sortie
 
 echo "$DATE -$HEURE -$VILLE : $temp_actuelle - $moyenne " >> "$FICHIER_SORTIE"
 echo "MÉTÉO POUR LA VILLE : $VILLE"
-echo "température actuelle : $temp_actuelle"
-echo "température prévue pour demain: $moyenne"
 echo "historique sauvegardé dans le fichier : fichier_sortie"
 echo "Les Données sont sauvegardées dans : $FICHIER_SORTIE"
 
