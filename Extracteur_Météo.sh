@@ -9,7 +9,7 @@ else
 fi
 
 FICHIER_SORTIE="meteo.txt"
-FICHIER_LOCAL="local.txt"
+FICHIER_LOCAL="local.json"
 WTTR_URL="wttr.in"
 VILLE_DEFAUT="Toulouse"
 
@@ -60,7 +60,7 @@ echo "historique sauvegardé dans le fichier : fichier_sortie"
 echo "Les Données sont sauvegardées dans : $FICHIER_SORTIE"
 
 #variante json
-curl -s "$WTTR_URL/$VILLE?format=j1" > "$FICHIER_LOCAL"
+curl -s "$WTTR_URL/$VILLE?format=j1" > temp.json
 if ! command -v jq &> /dev/null; then
     echo "Erreur : jq n'est pas installé."
     exit 1
@@ -68,26 +68,37 @@ fi
 
 TEMP_ACTUELLE=$(jq -r '.current_condition[0].temp_C' "$FICHIER_LOCAL")
 [ -z "$TEMP_ACTUELLE" ] && TEMP_ACTUELLE="Non disponible"
-TEMP_ACTUELLE="${TEMP_ACTUELLE}°C"
-
-TEMP_DEMAIN=$(jq -r '.weather[1].avgtempC' "$FICHIER_LOCAL")
-[ -z "$TEMP_DEMAIN" ] && TEMP_DEMAIN="Non disponible"
-TEMP_DEMAIN="${TEMP_DEMAIN}°C"
+TEMP_ACTUELLE="${TEMP_ACTUELLE}°C
 
 vent=$(curl -s wttr.in/$ville?format="%w")
-
 humidite=$(curl -s wttr.in/$ville?format="%h")
-
-date_meteo=$(jq -r '.weather[0].date' "$FICHIER_LOCAL")
-
+prevision=$(jq -r '.current_condition[0].weatherDesc[0].value' temp.json)
 visibilite=$(head -n 17 local.txt | tail -n 1 | grep -oE "[0-9]*")
-echo "Saisie JSON"
-echo "Ville : $VILLE"
-echo "Date: $date_meteo "
-echo "Temperature actuelle : $TEMP_ACTUELLE"
-echo "Vent : $vent "
-echo "Humidité : $humidite"
-echo "Visibilité : $visibilite Km "
+
+jq -n \
+  --arg date "$DATE" \
+  --arg heure "$HEURE" \
+  --arg ville "$VILLE" \
+  --arg temperature "$TEMP_ACTUELLE" \
+  --arg prevision "$prevision" \
+  --arg vent "$VENT" \
+  --arg humidite "$humidite" \
+  --arg visibilite "$visibilite" \
+  '{
+    date: $date,
+    heure: $heure,
+    ville: $ville,
+    temperature: $temperature,
+    prevision: $prevision,
+    vent: $vent,
+    humidite: $humidite,
+    visibilite: $visibilite
+  }' >> "$FICHIER_LOCAL"
+
+# Nettoyage du fichier temporaire
+rm temp.json
+
+echo "Fichier JSON enregistré : $FICHIER_LOCAL"
 echo "$DATE -$HEURE -$VILLE : $TEMP_ACTUELLE - $TEMP_DEMAIN" >> "$FICHIER_SORTIE"
 
 echo "Données enregistrées dans $FICHIER_SORTIE"
