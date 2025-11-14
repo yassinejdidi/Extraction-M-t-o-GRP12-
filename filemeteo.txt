@@ -1,8 +1,8 @@
 Weather report: Toulouse
 
       \   /     Clear
-       .-.      14 °C          
-    ― (   ) ―   ← 9 km/h       
+       .-.      15 °C          
+    ― (   ) ―   ↖ 8 km/h       
        `-’      10 km          
       /   \     0.0 mm         
                                                        ┌─────────────┐                                                       
