@@ -1,8 +1,8 @@
 Weather report: Toulouse
 
      \  /       Partly cloudy
-   _ /"".-.     62 °F          
-     \_(   ).   ← 3 mph        
+   _ /"".-.     60 °F          
+     \_(   ).   ↖ 3 mph        
      /(___(__)  6 mi           
                 0.0 in         
                                                        ┌─────────────┐                                                       

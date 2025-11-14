@@ -61,3 +61,5 @@
 2025-11-14 -17:27 -Toulouse : null°C - 
 2025-11-14 -18:39 -Toulouse : Non disponible -  
 2025-11-14 -18:39 -Toulouse : null°C - 
+2025-11-14 -19:23 -Toulouse : Non disponible -  
+2025-11-14 -19:23 -Toulouse : null°C - 
