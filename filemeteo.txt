@@ -2,7 +2,7 @@ Weather report: Toulouse
 
                 Overcast
        .--.     64 °F          
-    .-(    ).   ↖ 21 mph       
+    .-(    ).   ← 19 mph       
    (___.__)__)  6 mi           
                 0.0 in         
                                                        ┌─────────────┐                                                       
