@@ -1,10 +1,10 @@
 {
   "date": "2025-11-15",
-  "heure": "09:25",
+  "heure": "10:29",
   "ville": "Toulouse",
   "temperature": "null°C",
-  "prevision": "Fog",
-  "vent": "↖3mph",
-  "humidite": "90%",
+  "prevision": "Sunny",
+  "vent": "↑3mph",
+  "humidite": "75%",
   "visibilite": "10"
 }
