@@ -27,5 +27,14 @@ Le script `Extracteur_Météo.sh` permet de :
 Commandes pour l'executer : 
 ./Extracteur_Météo.sh Ville 
 
-Exemple : 2024-09-24 -14:30 -Toulouse : 17°C - 19°C 
+Exemple de réultat : 2024-09-24 -14:30 -Toulouse : 17°C - 19°C 
 
+### Version2  : Automatisation 
+Objectif : Automatiser l'execution du script
+
+Le script de la version 2  permet de :
+
+1. Une ville va être attribuer par default si aucun argument n'est donné.
+2. On a configuré une tache CRON pour executer le script automatiquement
+3. La tache CRON va enregistrer les données périodiquement
+ 
