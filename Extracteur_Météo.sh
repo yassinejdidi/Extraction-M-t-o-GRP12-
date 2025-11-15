@@ -55,7 +55,7 @@ fi
 
 VENT=$(curl -s wttr.in/$ville?format="%w")
 HUMIDITE=$(curl -s wttr.in/$ville?format="%h")
-VISIBILITE=$(curl -s "wttr.in/$ville?format=%v")
+VISIBILITE=$(curl -s wttr.in/$ville?format="%v")
 
 #l'historique
 fichier_sortie="meteo_$(date +"%Y%m%d").txt"
