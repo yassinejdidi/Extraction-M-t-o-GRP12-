@@ -1,4 +1,4 @@
-ho#!/bin/bash
+#!/bin/bash
 
 WTTR_URL="wttr.in"
 VILLE_DEFAUT="Toulouse"
