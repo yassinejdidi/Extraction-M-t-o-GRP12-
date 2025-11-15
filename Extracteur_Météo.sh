@@ -55,11 +55,11 @@ fi
 
 VENT=$(curl -s wttr.in/$ville?format="%w")
 HUMIDITE=$(curl -s wttr.in/$ville?format="%h")
-VISIBILITE=$(head -n 17 local.txt | tail -n 1 | grep -oE "[0-9]*")
+VISIBILITE=$(curl -s "wttr.in/$ville?format=%v")
 
 #l'historique
 fichier_sortie="meteo_$(date +"%Y%m%d").txt"
-echo "$DATE $HEURE - $VILLE : $TEMP_ACTUELLE / $TEMP_DEMAIN" >> "$fichier_sortie"
+echo "$DATE $HEURE - $VILLE : $temp_actuelle / $moyenne" >> "$fichier_sortie"
 echo "historique sauvegardé dans le fichier : fichier_sortie"
 
 echo "Vent : $VENT "
