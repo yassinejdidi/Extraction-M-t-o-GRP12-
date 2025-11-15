@@ -48,5 +48,15 @@
     "vent": "11 km/h",
     "humidite": "82%",
     "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-15",
+    "heure": "19:03",
+    "ville": "Paris",
+    "temperature": "12°C",
+    "prevision": "Light drizzle",
+    "vent": "4 km/h",
+    "humidite": "100%",
+    "visibilite": "10 km"
   }
 ]
