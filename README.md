@@ -13,3 +13,28 @@ Ce travail nous permet de nous familiariser avec :
 - L’utilisation de Git pour la gestion des versions du script
 - L'utilisation de cron pour executer automatiqement nos taches
 - La collecte et la mise en forme de données météo avec curl.
+
+### Version 1 : Script de base
+
+Le script `Extracteur_Météo.sh` permet de :
+1. Récupérer la météo  via  wttr.in pour la ville sélectionner.
+2. Extraire la température actuelle et la prévision de celle du lendemain.
+3. Formate les informations pour les rendre plus lisibles pour l'utilisateur.
+4. Enregistrer les données dans le fichier `meteo.txt` au format :
+
+[Date] - [Heure] - Ville : [Température actuelle] - [Prévision du lendemain]
+
+Commandes pour l'executer : 
+./Extracteur_Météo.sh Ville 
+
+Exemple de réultat : 2024-09-24 -14:30 -Toulouse : 17°C - 19°C 
+
+### Version2  : Automatisation 
+Objectif : Automatiser l'execution du script
+
+Le script de la version 2  permet de :
+
+1. Une ville va être attribuer par default si aucun argument n'est donné.
+2. On a configuré une tache CRON pour executer le script automatiquement
+3. La tache CRON va enregistrer les données périodiquement
+ 
