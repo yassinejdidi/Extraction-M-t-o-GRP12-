@@ -51,12 +51,31 @@
   },
   {
     "date": "2025-11-15",
+<<<<<<< HEAD
     "heure": "19:03",
     "ville": "Paris",
     "temperature": "12°C",
     "prevision": "Light drizzle",
     "vent": "4 km/h",
     "humidite": "100%",
+=======
+    "heure": "18:09",
+    "ville": "Toulouse",
+    "temperature": "16°C",
+    "prevision": "Clear",
+    "vent": "8 km/h",
+    "humidite": "68%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-15",
+    "heure": "18:13",
+    "ville": "Toulouse",
+    "temperature": "16°C",
+    "prevision": "Clear",
+    "vent": "8 km/h",
+    "humidite": "68%",
+>>>>>>> ae4228aeda77774202d118e8f8b79ed32003359c
     "visibilite": "10 km"
   }
 ]
