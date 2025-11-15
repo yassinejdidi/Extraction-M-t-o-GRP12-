@@ -13,8 +13,6 @@ else
     VILLE="$1"
 fi
 
-<<<<<<< HEAD
-=======
 FICHIER_SORTIE="meteo.txt"
 FICHIER_LOCAL="local.json"
 WTTR_URL="wttr.in"
