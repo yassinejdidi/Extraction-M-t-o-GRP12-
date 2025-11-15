@@ -1,10 +1,22 @@
-[{
-  "date": "2025-11-15",
-  "heure": "18:06",
-  "ville": "Lyon",
-  "temperature": "12°C",
-  "prevision": "Moderate rain",
-  "vent": "10 km/h",
-  "humidite": "94%",
-  "visibilite": "10 km"
-}]
+[
+  {
+    "date": "2025-11-15",
+    "heure": "18:06",
+    "ville": "Lyon",
+    "temperature": "12°C",
+    "prevision": "Moderate rain",
+    "vent": "10 km/h",
+    "humidite": "94%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-15",
+    "heure": "17:35",
+    "ville": "Toulouse",
+    "temperature": "18°C",
+    "prevision": "Clear",
+    "vent": "9 km/h",
+    "humidite": "60%",
+    "visibilite": "10 km"
+  }
+]
