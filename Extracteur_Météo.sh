@@ -17,7 +17,7 @@ FICHIER_SORTIE="meteo.txt"
 FICHIER_LOCAL="local.json"
 
 
-fichier=filemeteo.txt
+fichier="filemeteo.txt"
 curl -s "wttr.in/${VILLE}" > temp1
 sed -r 's/\x1B\[[0-9;]*[mK]//g' temp1 > "$fichier"
 if [ ! -s "$fichier" ]; then
