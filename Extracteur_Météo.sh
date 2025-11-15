@@ -15,8 +15,6 @@ fi
 
 FICHIER_SORTIE="meteo.txt"
 FICHIER_LOCAL="local.json"
-WTTR_URL="wttr.in"
-VILLE_DEFAUT="Toulouse"
 
 
 fichier=filemeteo.txt
@@ -72,7 +70,6 @@ echo "Les Données sont sauvegardées dans : $FICHIER_SORTIE"
 
 #variante json
 curl -s "$WTTR_URL/$VILLE?format=j1" > temp.json
->>>>>>> 20cb22a58513b4eec047e27517e9cfbda8d1c6ee
 if ! command -v jq &> /dev/null; then
     echo "Erreur : jq n'est pas installé."
     exit 1
