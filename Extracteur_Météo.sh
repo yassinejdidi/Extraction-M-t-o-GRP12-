@@ -1,4 +1,4 @@
-#!/bin/bash
+ho#!/bin/bash
 
 WTTR_URL="wttr.in"
 VILLE_DEFAUT="Toulouse"
@@ -60,13 +60,15 @@ VISIBILITE=$(curl -s "wttr.in/$ville?format=%v")
 #l'historique
 fichier_sortie="meteo_$(date +"%Y%m%d").txt"
 echo "$DATE $HEURE - $VILLE : $temp_actuelle / $moyenne" >> "$fichier_sortie"
-echo "historique sauvegardé dans le fichier : fichier_sortie"
 
+echo "temperature: $temp_actuelle"
+echo "prévision demain: $moyenne"
 echo "Vent : $VENT "
 echo "Humidité : $HUMIDITE"
 echo "Visibilité : $VISIBILITE Km "
 echo "$DATE -$HEURE -$VILLE : $temp_actuelle - $moyenne " >> "$FICHIER_SORTIE"
 echo "Les Données sont sauvegardées dans : $FICHIER_SORTIE"
+echo "historique sauvegardée dans le fichier : $fichier_sortie"
 
 #variante json
 curl -s "$WTTR_URL/$VILLE?format=j1" > temp.json
