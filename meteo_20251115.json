@@ -18,5 +18,15 @@
     "vent": "9 km/h",
     "humidite": "60%",
     "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-15",
+    "heure": "18:39",
+    "ville": "Marseille",
+    "temperature": "18°C",
+    "prevision": "Patchy rain nearby",
+    "vent": "19 km/h",
+    "humidite": "77%",
+    "visibilite": "10 km"
   }
 ]
