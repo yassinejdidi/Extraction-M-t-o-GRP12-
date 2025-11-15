@@ -13,6 +13,68 @@ else
     VILLE="$1"
 fi
 
+<<<<<<< HEAD
+=======
+FICHIER_SORTIE="meteo.txt"
+FICHIER_LOCAL="local.json"
+WTTR_URL="wttr.in"
+VILLE_DEFAUT="Toulouse"
+
+
+fichier=filemeteo.txt
+curl -s "wttr.in/${VILLE}" > temp1
+sed -r 's/\x1B\[[0-9;]*[mK]//g' temp1 > "$fichier"
+if [ ! -s "$fichier" ]; then
+  echo "Erreur : impossible de récupérer les données pour $ville."
+  exit 1
+fi
+DATE=$(date +"%Y-%m-%d")
+HEURE=$(date +"%H:%M")
+temp_actuelle=$(grep -m1 -oE '[+-]?[0-9]+(\([0-9]+\))? *°C' filemeteo.txt)
+demain=$(date -d "tomorrow" +"%a %d %b")
+temp_demain=$(grep -A8 "$demain" filemeteo.txt | grep -oE '[+-]?[0-9]+ °C' | grep -oE '[+-]?[0-9]+')
+
+somme=0
+compte=0
+
+for t in $temp_demain; do
+    somme=$((somme + t))
+    compte=$((compte + 1))
+done
+
+# Calculer la moyenne
+if [ $compte -gt 0 ]; then
+    moyenne=$((somme / compte))
+    moyenne="${moyenne}°C"
+else
+    echo "Aucune température trouvée."
+fi
+
+if [ -z "$temp_actuelle" ]; then
+  temp_actuelle="Non disponible"
+fi
+if [ -z "$temp_demain" ]; then
+  temp_demain="Non disponible"
+fi
+
+VENT=$(curl -s wttr.in/$ville?format="%w")
+HUMIDITE=$(curl -s wttr.in/$ville?format="%h")
+VISIBILITE=$(head -n 17 local.txt | tail -n 1 | grep -oE "[0-9]*")
+
+#l'historique
+fichier_sortie="meteo_$(date +"%Y%m%d").txt"
+echo "$DATE $HEURE - $VILLE : $TEMP_ACTUELLE / $TEMP_DEMAIN" >> "$fichier_sortie"
+echo "historique sauvegardé dans le fichier : fichier_sortie"
+
+echo "Vent : $VENT "
+echo "Humidité : $HUMIDITE"
+echo "Visibilité : $VISIBILITE Km "
+echo "$DATE -$HEURE -$VILLE : $temp_actuelle - $moyenne " >> "$FICHIER_SORTIE"
+echo "Les Données sont sauvegardées dans : $FICHIER_SORTIE"
+
+#variante json
+curl -s "$WTTR_URL/$VILLE?format=j1" > temp.json
+>>>>>>> 20cb22a58513b4eec047e27517e9cfbda8d1c6ee
 if ! command -v jq &> /dev/null; then
     echo "Erreur : jq n'est pas installé."
     exit 1
