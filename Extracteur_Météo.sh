@@ -115,7 +115,7 @@ NOUVELLE_ENTREE=$(jq -n \
 )
 
 if [ -f "$FICHIER_HISTO" ]; then
-    jq ". += [$NOUVELLE_ENTREE]" "$FICHIER_HISTO" > "$FICHIER_HISTO.tmp" && mv "$FICHIER_HISTO.tmp" "$FICHIER_HISTO"
+    jq ". += [$NOUVELLE_ENTREE]" "$FICHIER_HISTO" > "$FICHIER_HISTO.tmp" && mv "$FICHIER_HISTO" "$FICHIER_HISTO"
 else
     echo "[$NOUVELLE_ENTREE]" > "$FICHIER_HISTO"
 fi
