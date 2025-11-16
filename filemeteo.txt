@@ -1,8 +1,8 @@
 Weather report: Toulouse
 
      \  /       Partly cloudy
-   _ /"".-.     19 °C          
-     \_(   ).   → 14 km/h      
+   _ /"".-.     18 °C          
+     \_(   ).   → 15 km/h      
      /(___(__)  10 km          
                 0.0 mm         
                                                        ┌─────────────┐                                                       
