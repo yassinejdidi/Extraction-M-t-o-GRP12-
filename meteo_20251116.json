@@ -88,5 +88,15 @@
     "vent": "4 km/h",
     "humidite": "100%",
     "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "11:23",
+    "ville": "Caen",
+    "temperature": "12°C",
+    "prevision": "Mist",
+    "vent": "13 km/h",
+    "humidite": "100%",
+    "visibilite": "10 km"
   }
 ]
