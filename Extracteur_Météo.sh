@@ -6,7 +6,7 @@ DATE=$(date +"%Y-%m-%d")
 HEURE=$(date +"%H:%M")
 demain=$(date -d "tomorrow" +"%a %d %b")
 FICHIER_HISTO="meteo_$(date +"%Y%m%d").json"
-
+log_erreur=fichier_erreur
 if [ -z "$1" ]; then
     VILLE="$VILLE_DEFAUT"
     echo "Aucune ville fournie, utilisation de la ville par défaut : $VILLE"
@@ -19,7 +19,7 @@ FICHIER_SORTIE="meteo.txt"
 # Récupération météo texte
 fichier="filemeteo.txt"
 if ! curl -s --fail "$WTTR_URL/$VILLE" > temp1; then
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - ERREUR : impossible de se connecter à wttr.in pour la ville '$VILLE'." >> "$LO>
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - ERREUR : impossible de se connecter à wttr.in pour la ville '$VILLE'." >> "
     echo "Erreur : connexion impossible."
     exit 1
 fi
