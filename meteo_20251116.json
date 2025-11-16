@@ -1,0 +1,92 @@
+[
+  {
+    "date": "2025-11-16",
+    "heure": "02:19",
+    "ville": "Toulouse",
+    "temperature": "13°C",
+    "prevision": "Cloudy",
+    "vent": "9 km/h",
+    "humidite": "88%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "03:53",
+    "ville": "Toulouse",
+    "temperature": "13°C",
+    "prevision": "Patchy rain nearby",
+    "vent": "11 km/h",
+    "humidite": "94%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "04:34",
+    "ville": "Toulouse",
+    "temperature": "12°C",
+    "prevision": "Cloudy",
+    "vent": "4 km/h",
+    "humidite": "94%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "05:28",
+    "ville": "Toulouse",
+    "temperature": "11°C",
+    "prevision": "Overcast",
+    "vent": "5 km/h",
+    "humidite": "94%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "06:38",
+    "ville": "Toulouse",
+    "temperature": "11°C",
+    "prevision": "Partly cloudy",
+    "vent": "4 km/h",
+    "humidite": "94%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "07:25",
+    "ville": "Toulouse",
+    "temperature": "11°C",
+    "prevision": "Overcast",
+    "vent": "4 km/h",
+    "humidite": "100%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "08:33",
+    "ville": "Toulouse",
+    "temperature": "11°C",
+    "prevision": "Partly cloudy",
+    "vent": "4 km/h",
+    "humidite": "100%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "09:26",
+    "ville": "Toulouse",
+    "temperature": "11°C",
+    "prevision": "Partly cloudy",
+    "vent": "4 km/h",
+    "humidite": "100%",
+    "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "11:19",
+    "ville": "Rennes",
+    "temperature": "11°C",
+    "prevision": "Partly cloudy",
+    "vent": "4 km/h",
+    "humidite": "100%",
+    "visibilite": "10 km"
+  }
+]

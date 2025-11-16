@@ -115,4 +115,22 @@
 2025-11-15 -18:22 -Toulouse : 17 °C - 13°C 
 2025-11-15 -19:26 -Dijon : +8(6) °C - 9°C 
 2025-11-15 -19:29 -Paris : +12(13) °C - 10°C 
+<<<<<<< HEAD
 2025-11-15 -19:41 -Nantes : 13 °C - 11°C 
+=======
+2025-11-15 -18:35 -Toulouse : Non disponible -  
+2025-11-15 -19:20 -Toulouse : Non disponible - Non disponible 
+2025-11-15 -20:27 -Toulouse : Non disponible - Non disponible 
+2025-11-15 -21:23 -Toulouse : Non disponible - Non disponible 
+2025-11-15 -22:24 -Toulouse : 16 °C - 13°C 
+2025-11-15 -23:24 -Toulouse : Non disponible - Non disponible 
+2025-11-16 -02:19 -Toulouse : +13(12) °C - Non disponible 
+2025-11-16 -03:53 -Toulouse : +13(12) °C - Non disponible 
+2025-11-16 -04:34 -Toulouse : Non disponible - Non disponible 
+2025-11-16 -05:28 -Toulouse : Non disponible - Non disponible 
+2025-11-16 -06:38 -Toulouse : 11 °C - Non disponible 
+2025-11-16 -07:25 -Toulouse : +11(12) °C - Non disponible 
+2025-11-16 -08:33 -Toulouse : +11(12) °C - Non disponible 
+2025-11-16 -09:26 -Toulouse : Non disponible - Non disponible 
+>>>>>>> 568681b33d47ccf1db2a97bf7931046f04c49ba9
+2025-11-16 -11:19 -Rennes : 11 °C - Non disponible 
