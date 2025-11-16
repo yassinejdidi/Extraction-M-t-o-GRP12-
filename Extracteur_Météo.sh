@@ -19,14 +19,14 @@ FICHIER_SORTIE="meteo.txt"
 # Récupération météo texte
 fichier="filemeteo.txt"
 if ! curl -s --fail "$WTTR_URL/$VILLE" > temp1; then
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - ERREUR : impossible de se connecter à wttr.in pour la ville '$VILLE'." >> "fichier_erreur.log"
+    echo "$(date '+%Y-%m-%d %H:%M:%S')  ERREUR : impossible de se connecter à wttr.in pour la ville '$VILLE'." >> "fichier_erreur.log"
     echo "Erreur : connexion impossible."
     exit 1
 fi
 sed -r 's/\x1B\[[0-9;]*[mK]//g' temp1 > "$fichier"
 
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
-echo "${TIMESTAMP} - Erreur : Impossible de récupérer la météo pour ${VILLE}" >> "fichier_erreur.log"
+echo "${TIMESTAMP} Erreur : Impossible de récupérer la météo pour ${VILLE}" >> "fichier_erreur.log"
 
 if [ ! -s "$fichier" ]; then
   echo "Erreur : impossible de récupérer les données pour $VILLE."
