@@ -20,7 +20,7 @@ Le script `Extracteur_Météo.sh` permet de :
 1. Récupérer la météo  via  wttr.in pour la ville sélectionner.
 2. Extraire la température actuelle et la prévision de celle du lendemain.
 3. Formate les informations pour les rendre plus lisibles pour l'utilisateur.
-4. Enregistrer les données dans le fichier `meteo.txt` au format :
+4. Enregistrer les données dans un fichier au format :
 
 [Date] - [Heure] - Ville : [Température actuelle] - [Prévision du lendemain]
 
@@ -38,3 +38,49 @@ Le script de la version 2  permet de :
 2. On a configuré une tache CRON pour executer le script automatiquement
 3. La tache CRON va enregistrer les données périodiquement
  
+### Version 3 : Gestion d'historique 
+
+L'objectif : Conservation d'un historique pour les prévisions 
+
+Le script va : 
+
+1. Crée un fichier du jour `meteo_YYYYMMDD.txt`.
+2. Ajoute chaque nouveau relevé dans ce fichier.
+3. Sauvegarde un résumé global dans `meteo.txt`.
+4. Permet de consulter plus tard les données passées. 
+
+### Variante 1 : Informations supplémentaires
+
+L'objectif :  Ajouter plus de détails sur la météo.
+
+Le script va récuperer :
+1. La vitesse du vent.
+2. Le taux d’humidité.
+3. La visibilité.
+
+Les données vont être ajoutées dans les fichiers dans ce format :
+
+[Date] - [Heure] - Ville : [Température] - [Prévision demain]
+- Vent : [Vitesse] - Humidité : [Taux] - Visibilité : [Distance]
+
+
+### La variante 2 : Sauvegarde en format JSON
+
+L'objectif :  Enregistrer les données sous un format JSON donc plus structuré
+
+Le script va:
+1.créer un fichier `meteo_YYYYMMDD.json` contenant toutes les observations du jour.  
+2.A chaque nouvelle exécution, on ajoute une nouvelle ligne dans le fichier
+3.Ce format permet d'exploiter les données plus facilement.
+
+Par exemple :
+{
+"date": "2025-11-16",
+"heure": "12:30",
+"ville": "Toulouse",
+"temperature": "18°C",
+"prevision": "Ciel clair",
+"vent": "12 km/h",
+"humidite": "65%",
+"visibilite": "9 km"
+}
