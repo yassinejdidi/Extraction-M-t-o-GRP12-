@@ -106,6 +106,14 @@ else
     echo "[$NOUVELLE_ENTREE]" > "$FICHIER_HISTO"
 fi
 
+# Affichage clair 
+echo "temperature: $TEMP_ACTUELLE"
+echo "prévision demain: $TEMP_DEMAIN"
+echo "Vent : $VENT"
+echo "Humidité : $HUMIDITE"
+echo "Visibilité : $VISIBILITE"
+echo "Les Données sont sauvegardées dans : $FICHIER_SORTIE"
+echo "historique sauvegardée dans le fichier : $fichier_sortie"
 echo "Données JSON enregistrées dans $FICHIER_HISTO"
 
 rm -f temp_local.json
