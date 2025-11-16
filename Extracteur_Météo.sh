@@ -55,8 +55,20 @@ fi
 
 # Autres infos
 VENT=$(curl -s wttr.in/$VILLE?format="%w")
+if ! curl -s --fail "$VENT" > temp1; then
+    echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur du vent." >> "$LOGFILE"
+    echo "Erreur : connexion impossible."
+    exit 1
 HUMIDITE=$(curl -s wttr.in/$VILLE?format="%h")
+if ! curl -s --fail "$HUMIDITE" > temp1; then
+    echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur de l'humidité ." >> "$LOGFILE"
+    echo "Erreur : connexion impossible."
+    exit 1
 VISIBILITE=$(curl -s wttr.in/$VILLE?format="%v")
+if ! curl -s --fail "$VISIBILITE" > temp1; then
+    echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur de la visibilité." >> "$LOGFILE"
+    echo "Erreur : connexion impossible."
+    exit 1
 
 # Historique texte
 fichier_sortie="meteo_$(date +"%Y%m%d").txt"
