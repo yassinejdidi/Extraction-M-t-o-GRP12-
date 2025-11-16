@@ -54,7 +54,7 @@ fi
 [ -z "$temp_actuelle" ] && temp_actuelle="Non disponible"
 
 # Autres infos
-VENT=curl -s wttr.in/$VILLE?format="%w"
+VENT= $(curl -s wttr.in/$VILLE?format="%w")
 if [ $? -ne 0 ]
 then
     echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur du vent." >> "$log_erreur"
