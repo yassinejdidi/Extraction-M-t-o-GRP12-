@@ -68,5 +68,15 @@
     "vent": "4 km/h",
     "humidite": "100%",
     "visibilite": "10 km"
+  },
+  {
+    "date": "2025-11-16",
+    "heure": "09:26",
+    "ville": "Toulouse",
+    "temperature": "11°C",
+    "prevision": "Partly cloudy",
+    "vent": "4 km/h",
+    "humidite": "100%",
+    "visibilite": "10 km"
   }
 ]
