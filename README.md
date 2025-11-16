@@ -13,7 +13,13 @@ Ce travail nous permet de nous familiariser avec :
 - L’utilisation de Git pour la gestion des versions du script
 - L'utilisation de cron pour executer automatiqement nos taches
 - La collecte et la mise en forme de données météo avec curl.
--
+- Une répartition claire des tâches entre les membres de l’équipe avec JIRA, chacun se concentrant sur une partie spécifique du script.
+ - On a communiquer régulièrement pour coordonner notre avancement, résoudre les problèmes rencontrés et valider les modifications faites.
+  - Un suivi des progrès via les  messages de commit et les tags.
+
+## Suivi des tickets
+
+Vous pouvez suivre les tâches et bugs sur [Jira] (https://toulouse-team-p5i4bowa.atlassian.net/jira/software/projects/KAN/list?atlOrigin=eyJpIjoiYzE0MTU3YWJjZjRkNDI3NjkyYzc5MzVjOGE1ZTZkYTAiLCJwIjoiaiJ9) 
 
 ### Version 1 : Script de base
 
