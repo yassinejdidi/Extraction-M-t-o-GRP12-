@@ -20,6 +20,10 @@ FICHIER_SORTIE="meteo.txt"
 fichier="filemeteo.txt"
 curl -s "$WTTR_URL/$VILLE" > temp1
 sed -r 's/\x1B\[[0-9;]*[mK]//g' temp1 > "$fichier"
+
+TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
+echo "${TIMESTAMP} - Erreur : Impossible de récupérer la météo pour ${VILLE}" >> meteo_error.log
+
 if [ ! -s "$fichier" ]; then
   echo "Erreur : impossible de récupérer les données pour $VILLE."
   exit 1
