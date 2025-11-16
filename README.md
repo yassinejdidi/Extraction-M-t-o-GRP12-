@@ -19,7 +19,7 @@ Ce travail nous permet de nous familiariser avec :
 
 ## Suivi des tickets
 
-Vous pouvez suivre les tâches et bugs sur [Jira] (https://toulouse-team-p5i4bowa.atlassian.net/jira/software/projects/KAN/list?atlOrigin=eyJpIjoiYzE0MTU3YWJjZjRkNDI3NjkyYzc5MzVjOGE1ZTZkYTAiLCJwIjoiaiJ9) 
+Vous pouvez suivre les tâches et bugs sur [Jira] (https://toulouse-team-p5i4bowa.atlassian.net/jira/software/projects/KAN/list?atlOrigin=eyJpIjoiYmVmZWY5ODljYWE0NDkxMzhhYTg3MTFlYjRjYjA0NTAiLCJwIjoiaiJ9) 
 
 ### Version 1 : Script de base
 
