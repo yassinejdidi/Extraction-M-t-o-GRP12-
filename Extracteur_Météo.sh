@@ -4,6 +4,7 @@ WTTR_URL="wttr.in"
 VILLE_DEFAUT="Toulouse"
 DATE=$(date +"%Y-%m-%d")
 HEURE=$(date +"%H:%M")
+demain=$(date -d "tomorrow" +"%a %d %b")
 FICHIER_HISTO="meteo_$(date +"%Y%m%d").json"
 
 if [ -z "$1" ]; then
@@ -25,7 +26,7 @@ if [ ! -s "$fichier" ]; then
 fi
 
 temp_actuelle=$(grep -m1 -oE '[+-]?[0-9]+(\([0-9]+\))? *°C' "$fichier")
-demain=$(date -d "tomorrow" +"%a %d %b")
+
 temp_demain=$(grep -A8 "$demain" "$fichier" | grep -oE '[+-]?[0-9]+ °C' | grep -oE '[+-]?[0-9]+')
 
 # Calcul moyenne temp demain
