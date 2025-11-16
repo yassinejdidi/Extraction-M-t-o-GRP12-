@@ -54,28 +54,38 @@ fichier_sortie="meteo_$(date +"%Y%m%d").txt"
 echo "$DATE $HEURE - $VILLE : $temp_actuelle / $moyenne" >> "$fichier_sortie"
 echo "$DATE -$HEURE -$VILLE : $temp_actuelle - $moyenne " >> "$FICHIER_SORTIE"
 
-# Récupération JSON
-curl -s "$WTTR_URL/$VILLE?format=j1" > temp.json
+# Récupération json
+curl -s "$WTTR_URL/$VILLE?format=j1" > temp_local.json
 
 if ! command -v jq &> /dev/null; then
     echo "Erreur : jq n'est pas installé."
     exit 1
 fi
 
-# Extraction des champs JSON
-TEMP_ACTUELLE=$(jq -r '.current_condition[0].temp_C // "Non disponible"' temp.json)
+TEMP_ACTUELLE=$(jq -r '.current_condition[0].temp_C' temp_local.json)
+[ -z "$TEMP_ACTUELLE" ] && TEMP_ACTUELLE="Non disponible"
 TEMP_ACTUELLE="${TEMP_ACTUELLE}°C"
-TEMP_DEMAIN=$(jq -r '.weather[1].avgtempC // "Non disponible"' temp.json)
+
+TEMP_DEMAIN=$(jq -r '.weather[1].avgtempC' temp_local.json)
+[ -z "$TEMP_DEMAIN" ] && TEMP_DEMAIN="Non disponible"
 TEMP_DEMAIN="${TEMP_DEMAIN}°C"
-PREVISION=$(jq -r '.current_condition[0].weatherDesc[0].value // "Non disponible"' temp.json)
-VENT=$(jq -r '.current_condition[0].windspeedKmph // "Non disponible"' temp.json)
+
+PREVISION=$(jq -r '.current_condition[0].weatherDesc[0].value' temp_local.json)
+[ -z "$PREVISION" ] && PREVISION="Non disponible"
+
+VENT=$(jq -r '.current_condition[0].windspeedKmph' temp_local.json)
+[ -z "$VENT" ] && VENT="Non disponible"
 VENT="${VENT} km/h"
-HUMIDITE=$(jq -r '.current_condition[0].humidity // "Non disponible"' temp.json)
+
+HUMIDITE=$(jq -r '.current_condition[0].humidity' temp_local.json)
+[ -z "$HUMIDITE" ] && HUMIDITE="Non disponible"
 HUMIDITE="${HUMIDITE}%"
-VISIBILITE=$(jq -r '.current_condition[0].visibility // "Non disponible"' temp.json)
+
+VISIBILITE=$(jq -r '.current_condition[0].visibility' temp_local.json)
+[ -z "$VISIBILITE" ] && VISIBILITE="Non disponible"
 VISIBILITE="${VISIBILITE} km"
 
-# Création entrée JSON
+# --- CREATION DE L'ENTRÉE JSON ---
 NOUVELLE_ENTREE=$(jq -n \
   --arg date "$DATE" \
   --arg heure "$HEURE" \
@@ -88,14 +98,14 @@ NOUVELLE_ENTREE=$(jq -n \
   '{date: $date, heure: $heure, ville: $ville, temperature: $temperature, prevision: $prevision, vent: $vent, humidite: $humidite, visibilite: $visibilite}'
 )
 
-# Ajout dans fichier JSON historique
+# --- AJOUT HISTORIQUE JSON ---
 if [ -f "$FICHIER_HISTO" ]; then
-    jq ". += [$NOUVELLE_ENTREE]" "$FICHIER_HISTO" > "$FICHIER_HISTO.tmp" && mv "$FICHIER_HISTO.tmp" "$FICHIER_HISTO"
+    jq ". += [$NOUVELLE_ENTREE]" "$FICHIER_HISTO" > "$FICHIER_HISTO.tmp" \
+        && mv "$FICHIER_HISTO.tmp" "$FICHIER_HISTO"
 else
     echo "[$NOUVELLE_ENTREE]" > "$FICHIER_HISTO"
 fi
 
 echo "Données JSON enregistrées dans $FICHIER_HISTO"
 
-# Nettoyage
-rm -f temp.json temp1 "$fichier"
+rm -f temp_local.json
