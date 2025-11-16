@@ -54,8 +54,11 @@ Le script va :
 L'objectif :  Ajouter plus de détails sur la météo.
 
 Le script va récuperer :
+
 1. La vitesse du vent.
+
 2. Le taux d’humidité.
+
 3. La visibilité.
 
 Les données vont être ajoutées dans les fichiers dans ce format :
@@ -69,18 +72,28 @@ Les données vont être ajoutées dans les fichiers dans ce format :
 L'objectif :  Enregistrer les données sous un format JSON donc plus structuré
 
 Le script va:
+
 1.créer un fichier `meteo_YYYYMMDD.json` contenant toutes les observations du jour.  
+
 2.A chaque nouvelle exécution, on ajoute une nouvelle ligne dans le fichier
+
 3.Ce format permet d'exploiter les données plus facilement.
 
 Par exemple :
 {
 "date": "2025-11-16",
+
 "heure": "12:30",
+
 "ville": "Toulouse",
+
 "temperature": "18°C",
+
 "prevision": "Ciel clair",
+
 "vent": "12 km/h",
+
 "humidite": "65%",
+
 "visibilite": "9 km"
 }
