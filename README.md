@@ -137,4 +137,13 @@ Par exemple :
 "visibilite": "9 km"
 }
 
+### La variante 3 : Ajouter une Gestion des erreurs et des logs
+
+Objectif :  Gérer les erreurs qui surviennent lors du lancement du script.
+
+Cette variante va : 
+- Envoyer un message d’erreur est ajouté dans  en  cas  d’erreur de connection à wttr.in,
+- Le timestamp va être généré à chaque erreur pour un suivi précis.
+  
+
 
