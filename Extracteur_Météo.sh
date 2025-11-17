@@ -37,7 +37,7 @@ temp_actuelle=$(grep -m1 -oE '[+-]?[0-9]+(\([0-9]+\))? *°C' "$fichier")
 
 temp_demain=$(grep -A8 "$demain" "$fichier" | grep -oE '[+-]?[0-9]+ °C' | grep -oE '[+-]?[0-9]+')
 
-# Calcul moyenne temp demain
+# Calcul moyenne temps demain
 somme=0
 compte=0
 for t in $temp_demain; do
@@ -114,7 +114,7 @@ VISIBILITE=$(jq -r '.current_condition[0].visibility' temp_local.json)
 [ -z "$VISIBILITE" ] && VISIBILITE="Non disponible"
 VISIBILITE="${VISIBILITE} km"
 
-# --- CREATION DE L'ENTRÉE JSON ---
+# Entrée json
 NOUVELLE_ENTREE=$(jq -n \
   --arg date "$DATE" \
   --arg heure "$HEURE" \
@@ -127,7 +127,7 @@ NOUVELLE_ENTREE=$(jq -n \
   '{date: $date, heure: $heure, ville: $ville, temperature: $temperature, prevision: $prevision, vent: $vent, humidite: $humidite, visibilite: $visibilite}'
 )
 
-# --- AJOUT HISTORIQUE JSON ---
+# Historique json
 if [ -f "$FICHIER_HISTO" ]; then
     jq ". += [$NOUVELLE_ENTREE]" "$FICHIER_HISTO" > "$FICHIER_HISTO.tmp" \
         && mv "$FICHIER_HISTO.tmp" "$FICHIER_HISTO"
