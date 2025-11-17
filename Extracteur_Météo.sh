@@ -52,24 +52,21 @@ fi
 
 # Autres infos
 VENT=$(curl -s wttr.in/$VILLE?format="%w")
-if [ -z "$VENT" ];
-then
+if [ -z "$VENT" ]; then
     echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur du vent." >> "$log_erreur"
     echo "Erreur : connexion impossible."
     exit 1
 fi
 
 HUMIDITE=$(curl -s wttr.in/$VILLE?format="%h")
-if [ -z "$HUMIDITE"  ];
-then
+if [ -z "$HUMIDITE"  ]; then
     echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur de l'humidité ." >> "$log_erreur"
     echo "Erreur : connexion impossible."
     exit 1
 fi
 
 VISIBILITE=$(curl -s wttr.in/$VILLE?format="%v")
-if [ -z "$VISIBILITE" ]; 
-then
+if [ -z "$VISIBILITE" ]; then
     echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur de la visibilité." >> "$log_erreur"
     echo "Erreur : connexion impossible."
     exit 1
