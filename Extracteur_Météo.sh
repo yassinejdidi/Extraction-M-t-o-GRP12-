@@ -32,7 +32,7 @@ fi
 
 temp_actuelle=$(grep -m1 -oE '[+-]?[0-9]+(\([0-9]+\))? *°C' "$fichier")
 
-temp_demain=$(grep -A8 "$demain" "$fichier" | grep -oE '[+-]?[0-9]+ °C' | grep -oE '[+-]?[0-9]+')
+temp_demain=$(grep -A8 "$demain" "filemeteo.txt" | grep -oE '[+-]?[0-9]+(\([0-9]+\))? *°C'| grep -oE '[+-]?[0-9]+')
 
 # Calcul moyenne temps demain
 somme=0
@@ -65,12 +65,7 @@ if [ -z "$HUMIDITE"  ]; then
     exit 1
 fi
 
-VISIBILITE=$(curl -s wttr.in/$VILLE?format="%v")
-if [ -z "$VISIBILITE" ]; then
-    echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur de la visibilité." >> "$log_erreur"
-    echo "Erreur : connexion impossible."
-    exit 1
-fi
+VISIBILITE=$(head -n6 filemeteo.txt| tail -n1| grep -oP '[0-9]+ km')
 
 # Historique texte
 fichier_sortie="meteo_$(date +"%Y%m%d").txt"
