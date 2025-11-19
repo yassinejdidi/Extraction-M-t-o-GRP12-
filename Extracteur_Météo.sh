@@ -19,15 +19,18 @@ FICHIER_SORTIE="meteo.txt"
 # Récupération météo texte
 fichier="filemeteo.txt"
 if ! curl -s --fail "$WTTR_URL/$VILLE" > temp1; then
-    echo "$(date '+%Y-%m-%d %H:%M:%S')  ERREUR : impossible de se connecter à wttr.in pour la ville '$VILLE'." >> "fichier_erreur.log"
+    Timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+    echo "${Timestamp} ERREUR : impossible de se connecter à wttr.in pour la ville '$VILLE'." >> "$log_erreur"
     echo "Erreur : connexion impossible."
     exit 1
 fi
 sed -r 's/\x1B\[[0-9;]*[mK]//g' temp1 > "$fichier"
 
 if [ ! -s "$fichier" ]; then
-  echo "Erreur : impossible de récupérer les données pour $VILLE."
-  exit 1
+  Timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+    echo "${Timestamp} Erreur : impossible de récupérer les données pour $VILLE." >> "$log_erreur"
+    echo "Erreur : impossible de récupérer les données pour $VILLE."
+    exit 1
 fi
 
 temp_actuelle=$(grep -m1 -oE '[+-]?[0-9]+(\([0-9]+\))? *°C' "$fichier")
@@ -53,14 +56,16 @@ fi
 # Autres infos
 VENT=$(curl -s wttr.in/$VILLE?format="%w")
 if [ -z "$VENT" ]; then
-    echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur du vent." >> "$log_erreur"
+    Timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+    echo "${Timestamp} ERREUR : impossible de se connecter à wttr.in pour récupérer la valeur de l'humidité." >> "$log_erreur"
     echo "Erreur : connexion impossible."
     exit 1
 fi
 
 HUMIDITE=$(curl -s wttr.in/$VILLE?format="%h")
 if [ -z "$HUMIDITE"  ]; then
-    echo " ERREUR : impossible de se connecter à wttr.in pour récuperer la valeur de l'humidité ." >> "$log_erreur"
+    Timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+    echo "${Timestamp} ERREUR : impossible de se connecter à wttr.in pour récupérer la valeur de l'humidité." >> "$log_erreur"
     echo "Erreur : connexion impossible."
     exit 1
 fi
@@ -76,6 +81,8 @@ echo "$DATE -$HEURE -$VILLE : $temp_actuelle - $moyenne " >> "$FICHIER_SORTIE"
 curl -s "$WTTR_URL/$VILLE?format=j1" > temp_local.json
 
 if ! command -v jq &> /dev/null; then
+    Timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+    echo "${Timestamp} Erreur : jq n'est pas installé." >> "$log_erreur"
     echo "Erreur : jq n'est pas installé."
     exit 1
 fi
