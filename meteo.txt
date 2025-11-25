@@ -158,3 +158,4 @@
 2025-11-21 -02:43 -Toulouse : +4(1) °C - 2°C 
 2025-11-22 -02:37 -Toulouse : Non disponible - Non disponible 
 2025-11-23 -02:59 -Toulouse : Non disponible - Non disponible 
+2025-11-25 -02:47 -Toulouse : Non disponible - Non disponible 
