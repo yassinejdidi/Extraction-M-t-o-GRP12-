@@ -246,3 +246,4 @@
 2026-03-14 -03:29 -Toulouse : +8(6) °C - 6°C 
 2026-03-15 -03:52 -Toulouse : Non disponible - Non disponible 
 2026-03-19 -03:42 -Toulouse : +11(7) °C - 10°C 
+2026-03-20 -03:33 -Toulouse : +6(4) °C - 11°C 
